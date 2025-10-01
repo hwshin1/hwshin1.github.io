@@ -2,9 +2,273 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8" />
-    <title>현우의 Git Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>포트폴리오 | 신현우</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-안녕하세요
+<body class="min-h-screen bg-gray-50 text-gray-900">
+<!-- 고정 헤더 네비게이션 -->
+<header id="top" class="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur">
+    <div class="mx-auto max-w-screen-xl px-4">
+        <div class="flex h-16 items-center justify-between">
+            <!-- 로고/이름 -->
+            <a href="#home" class="text-base sm:text-lg font-semibold tracking-tight">현우의 포트폴리오</a>
+
+            <!-- 내비게이션 -->
+            <nav id="nav" class="hidden sm:block">
+                <ul class="flex items-center gap-1 sm:gap-2">
+                    <!-- 섹션 앵커는 아래 섹션 id와 일치 -->
+                    <li><a class="px-3 py-2 text-sm/5 font-medium hover:text-indigo-600" href="#home">Home</a></li>
+                    <li><a class="px-3 py-2 text-sm/5 font-medium hover:text-indigo-600" href="#education">학력</a></li>
+                    <li><a class="px-3 py-2 text-sm/5 font-medium hover:text-indigo-600" href="#skills">내 스킬들</a></li>
+                    <li><a class="px-3 py-2 text-sm/5 font-medium hover:text-indigo-600" href="#projects">프로젝트</a></li>
+                    <li><a class="px-3 py-2 text-sm/5 font-medium hover:text-indigo-600" href="#blog">블로그</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- 히어로 섹션 -->
+<section id="home" class="relative border-b border-gray-200 bg-white">
+    <div class="mx-auto max-w-screen-xl px-4 py-16 sm:py-20">
+        <div class="grid items-center gap-10 md:grid-cols-2">
+            <!-- 텍스트 -->
+            <div>
+                <p class="text-xl font-semibold text-indigo-600">안녕하세요!</p>
+                <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">신입 개발자 신현우 입니다.</h1>
+                <p class="mt-4 text-base leading-relaxed text-gray-700">
+                    지속적으로 배우고 성장하는 것을 모토로 삼고,<br class="hidden sm:block">
+                    실제 서비스에 필요한 역량을 쌓아가고 있어.
+                </p>
+
+                <!-- 자기소개 -->
+                <div class="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <p class="text-sm leading-relaxed text-gray-800">
+                        백엔드 중심으로 Java, Spring Boot, JPA 등을 다루고,<br class="hidden sm:block">
+                        데이터 처리와 인프라(Docker, MySQL) 경험을 통해 안정적이고 확장 가능한 서비스를 목표로 해.
+                    </p>
+                </div>
+
+                <!-- 키 배지 -->
+                <ul class="mt-6 flex flex-wrap gap-2">
+                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Java</li>
+                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Python</li>
+                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">MySQL</li>
+                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Spring Boot</li>
+                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Spring Data JPA</li>
+                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">HTML / CSS / JS</li>
+                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Docker</li>
+                </ul>
+            </div>
+
+            <!-- 내프로필 카드 -->
+            <aside class="flex justify-center">
+                <div class="w-full max-w-xs rounded-2xl border border-gray-200 bg-white p-3 shadow-sm">
+                    <img src="images/profile.jpg" alt="내 프로필 사진" class="h-auto w-full rounded-xl object-cover">
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<!-- 학력 -->
+<section id="education" class="bg-gray-50">
+    <div class="mx-auto max-w-screen-xl px-4 py-14">
+        <h2 class="text-2xl font-bold">학력</h2>
+        <ul class="mt-6 space-y-5">
+            <li class="rounded-xl border border-gray-200 bg-white p-5">
+                <strong class="block text-base">우송대학교</strong>
+                <span class="text-sm text-gray-700">스마트 IT · 보안 학과</span><br>
+                <span class="text-sm text-gray-500">2023.03 ~ 2025.02 편입 · 졸업</span>
+            </li>
+            <li class="rounded-xl border border-gray-200 bg-white p-5">
+                <strong class="block text-base">교육과정</strong>
+                <span class="text-sm text-gray-700">[산대특]프롬프트AI · OpenAPI · 공공데이터 웹/앱 개발자 양성과정</span><br>
+                <span class="text-sm text-gray-500">2025.03 ~ 2025.10</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<!-- 스킬 -->
+<section id="skills" class="bg-gray-50">
+    <div class="mx-auto max-w-screen-xl px-4 py-14">
+        <h2 class="text-2xl font-bold">Tech Skills</h2>
+
+        <!-- 카드 그리드 -->
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- 각 스킬 카드: 필요에 따라 복제 -->
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-semibold">Python</span>
+                </div>
+                <p class="mt-2 text-sm text-gray-700">파이썬 기반 데이터 처리, 간단한 자동화/크롤러 작성 가능</p>
+            </div>
+
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-semibold">Java</span>
+                </div>
+                <p class="mt-2 text-sm text-gray-700">Java로 백엔드 핵심 로직과 웹 애플리케이션 구성 경험</p>
+            </div>
+
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-semibold">JavaScript</span>
+                </div>
+                <p class="mt-2 text-sm text-gray-700">기본 문법/DOM 제어 및 프론트-백엔드 연동</p>
+            </div>
+
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-semibold">Spring Boot</span>
+                </div>
+                <p class="mt-2 text-sm text-gray-700">간단한 웹 서비스부터 데이터 처리 기반 백엔드 구현 경험</p>
+            </div>
+
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-semibold">Spring Data JPA</span>
+                </div>
+                <p class="mt-2 text-sm text-gray-700">ORM 매핑/복잡 쿼리 처리/성능 최적화 경험</p>
+            </div>
+
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-semibold">MySQL</span>
+                </div>
+                <p class="mt-2 text-sm text-gray-700">데이터 베이스 관리 및 연동 경험</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 프로젝트 -->
+<section id="projects" class="bg-white">
+    <div class="mx-auto max-w-screen-xl px-4 py-14">
+        <h2 class="text-2xl font-bold">프로젝트</h2>
+
+        <!-- 타임라인 느낌의 리스트 -->
+        <div class="mt-6 space-y-6">
+            <!-- 이미지 카드: 부드러운 테두리, 그림자, 호버 시 살짝 들어올라오는 느낌 -->
+            <article class="group rounded-xl border border-gray-200 bg-gray-50 p-5 transition-shadow">
+                <div class="relative overflow-hidden rounded-lg ring-1 ring-gray-200/70 shadow-sm">
+                    <!-- 고정 비율이 필요하면 aspect-[16/9] 등 적용 -->
+                    <img src="images/KTrip_project_main.png"
+                         alt="K Trip 화면"
+                         class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"/>
+                </div>
+
+                <div class="mt-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                    <h3 class="text-base font-semibold">축구 팬들을 위한 지역 맛집 서비스</h3>
+                    <span class="text-sm text-gray-500">2025.05 ~ 2025.7</span>
+                </div>
+
+                <p class="mt-2 text-sm text-gray-700">
+                    국내 축구 팬들과 새로 유입되는 팬들을 위해 축구를 보면서 그 지역의 먹거리를 찾을 수 있게 사이트를 만드는 게 목적
+                </p>
+
+                <a href="https://velog.io/@hwshin/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B0%9C%ED%91%9C"
+                   target="_blank" rel="noreferrer"
+                   class="mt-3 inline-flex items-center text-sm font-medium text-indigo-600 hover:underline">상세 보기</a>
+            </article>
+
+            <article class="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                <div class="relative overflow-hidden rounded-lg ring-1 ring-gray-200/70 shadow-sm">
+                    <!-- 고정 비율이 필요하면 aspect-[16/9] 등 적용 -->
+                    <img src="images/TMRTeamProject_main.png"
+                         alt="터마루 메인"
+                         class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"/>
+                </div>
+
+                <div class="mt-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                    <h3 class="text-base font-semibold">터마루 팀프로젝트</h3>
+                    <span class="text-sm text-gray-500">2025.07 ~ 2025.09</span>
+                </div>
+                <p class="mt-2 text-sm text-gray-700">창업자들을 위한 상권 위험도 분석 및 시뮬레이션</p>
+                <a href="#" target="_blank" rel="noreferrer"
+                   class="mt-3 inline-flex items-center text-sm font-medium text-indigo-600 hover:underline">상세 보기</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- 블로그 -->
+<section id="blog" class="bg-white">
+    <div class="mx-auto max-w-screen-xl px-4 py-14">
+        <h2 class="text-2xl font-bold">Blog</h2>
+
+        <!-- 카드 리스트 -->
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            <article class="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                <a class="block" href="https://velog.io/@hwshin/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B0%9C%ED%91%9C" target="_blank" rel="noreferrer">
+                    <h3 class="text-base font-semibold">K Trip</h3>
+                    <p class="mt-1 text-xs text-gray-500">2025-07-02 · 프로젝트 발표</p>
+                    <p class="mt-2 text-sm text-gray-700">Spring Boot, MyBatis 경험</p>
+                    <p class="mt-1 text-sm text-gray-700">축구 팬들을 위한 지역 맛집 서비스</p>
+                </a>
+            </article>
+
+            <article class="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                <a class="block" href="#" target="_blank" rel="noreferrer">
+                    <h3 class="text-base font-semibold">터마루 팀프로젝트</h3>
+                    <p class="mt-1 text-xs text-gray-500">2025-09-30 · 발표</p>
+                    <p class="mt-2 text-sm text-gray-700">상권 위험도 분석 서비스</p>
+                </a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- 연락 -->
+<section id="contact" class="bg-gray-50">
+    <div class="mx-auto max-w-screen-xl px-4 py-14">
+        <h2 class="text-2xl font-bold">Contact</h2>
+        <div class="mt-6 grid gap-6 md:grid-cols-2">
+            <!-- 간단 폼 예시 -->
+            <form class="rounded-xl border border-gray-200 bg-white p-5">
+                <label class="block text-sm font-medium text-gray-700">이름</label>
+                <input type="text" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="이름을 입력해줘">
+                <label class="mt-4 block text-sm font-medium text-gray-700">이메일</label>
+                <input type="email" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="example@email.com">
+                <label class="mt-4 block text-sm font-medium text-gray-700">메시지</label>
+                <textarea rows="4" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="하고 싶은 말을 적어줘"></textarea>
+                <button type="submit" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700">
+                    보내기
+                </button>
+            </form>
+
+            <!-- 연락 정보 카드 -->
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
+                <p class="text-sm text-gray-700">이메일, 깃허브, 블로그 링크 등을 여기에 적어줘.</p>
+                <ul class="mt-3 space-y-2 text-sm">
+                    <li><a class="text-indigo-600 hover:underline" href="#" target="_blank" rel="noreferrer">GitHub</a></li>
+                    <li><a class="text-indigo-600 hover:underline" href="#" target="_blank" rel="noreferrer">Velog</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 푸터 -->
+<footer class="border-t border-gray-200 bg-white">
+    <div class="mx-auto flex max-w-screen-xl items-center justify-between px-4 py-6">
+        <p class="text-sm text-gray-600">© <span id="year"></span> 현우의 포트폴리오. All rights reserved.</p>
+        <a href="#top" class="text-sm font-medium text-indigo-600 hover:underline" aria-label="맨 위로">↑</a>
+    </div>
+</footer>
+
+<!-- 아주 간단한 스크립트: 메뉴 토글 & 연도 표시 -->
+<script>
+    // 모바일 메뉴 토글
+    const navToggle = document.getElementById('navToggle');
+    const navMobile = document.getElementById('navMobile');
+    navToggle?.addEventListener('click', () => {
+        const isOpen = navMobile.classList.contains('hidden') === false;
+        navMobile.classList.toggle('hidden');
+        navToggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+</script>
 </body>
 </html>
