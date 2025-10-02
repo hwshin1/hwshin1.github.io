@@ -1,262 +1,270 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>포트폴리오 | 신현우</title>
+    <!-- Tailwind v4 (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        /* Behance 느낌의 큰 타이포+여백, 카드 라운드/섀도우 강화 */
+        .case-card { box-shadow: 0 8px 24px rgba(0,0,0,.08) }
+        .brand-chip { box-shadow: inset 0 0 0 1px rgba(255,255,255,.15) }
+        html { scroll-behavior: smooth }
+    </style>
 </head>
 <body class="min-h-screen bg-gray-50 text-gray-900">
-<!-- 고정 헤더 네비게이션 -->
+<!-- 헤더: 심플 탑바 -->
 <header id="top" class="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur">
-    <div class="mx-auto max-w-screen-xl px-4">
+    <div class="mx-auto max-w-screen-2xl px-6">
         <div class="flex h-16 items-center justify-between">
             <!-- 로고/이름 -->
             <a href="#home" class="text-base sm:text-lg font-semibold tracking-tight">현우의 포트폴리오</a>
 
             <!-- 내비게이션 -->
-            <nav id="nav" class="hidden sm:block">
+            <nav class="hidden sm:block">
                 <ul class="flex items-center gap-1 sm:gap-2">
                     <!-- 섹션 앵커는 아래 섹션 id와 일치 -->
                     <li><a class="px-3 py-2 text-sm/5 font-medium hover:text-indigo-600" href="#home">Home</a></li>
                     <li><a class="px-3 py-2 text-sm/5 font-medium hover:text-indigo-600" href="#education">학력</a></li>
-                    <li><a class="px-3 py-2 text-sm/5 font-medium hover:text-indigo-600" href="#skills">내 스킬들</a></li>
+                    <li><a class="px-3 py-2 text-sm/5 font-medium hover:text-indigo-600" href="#skills">기술스택</a></li>
                     <li><a class="px-3 py-2 text-sm/5 font-medium hover:text-indigo-600" href="#projects">프로젝트</a></li>
-                    <li><a class="px-3 py-2 text-sm/5 font-medium hover:text-indigo-600" href="#blog">블로그</a></li>
                 </ul>
             </nav>
         </div>
     </div>
 </header>
 
-<!-- 히어로 섹션 -->
-<section id="home" class="relative border-b border-gray-200 bg-white">
-    <div class="mx-auto max-w-screen-xl px-4 py-16 sm:py-20">
-        <div class="grid items-center gap-10 md:grid-cols-2">
+<!-- 히어로: Behance 스타일 큰 히어로, 좌 텍스트 / 우 프로필 -->
+<section id="home" class="relative border-b border-gray-200">
+    <!-- 배경 그라데이션 배너 -->
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-50 via-white to-purple-50"></div>
+
+    <div class="mx-auto max-w-screen-2xl px-6 py-16 sm:py-24">
+        <div class="grid items-center gap-12 md:grid-cols-[1.2fr_1fr]">
             <!-- 텍스트 -->
             <div>
                 <p class="text-xl font-semibold text-indigo-600">안녕하세요!</p>
-                <h1 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">신입 개발자 신현우 입니다.</h1>
-                <p class="mt-4 text-base leading-relaxed text-gray-700">
-                    지속적으로 배우고 성장하는 것을 모토로 삼고,<br class="hidden sm:block">
+                <h1 class="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
+                    신입 개발자 신현우 입니다.
+                </h1>
+
+                <!-- 소개 문단 -->
+                <p class="mt-6 text-base leading-relaxed text-gray-700">
+                    지속적으로 배우고 성장하는 것을 모토로 삼고<br class="hidden sm:block">
                     실제 서비스에 필요한 역량을 쌓았습니다.
                 </p>
+                <p class="mt-3 text-sm leading-relaxed text-gray-800">
+                    백엔드 중심으로 Java, Spring Boot, JPA 등을 다루고<br class="hidden sm:block">
+                    데이터 처리와 인프라(MySQL) 경험을 통해 안정적이고 확장 가능한 서비스를 목표로 하고 있습니다.
+                </p>
 
-                <!-- 자기소개 -->
-                <div class="mt-6 rounded-xl border border-gray-200 bg-gray-50 p-4">
-                    <p class="text-sm leading-relaxed text-gray-800">
-                        백엔드 중심으로 Java, Spring Boot, JPA 등을 다루고,<br class="hidden sm:block">
-                        데이터 처리와 인프라(Docker, MySQL) 경험을 통해 안정적이고 확장 가능한 서비스를 목표로 하고 있습니다.
-                    </p>
+                <!-- 연락처 블록: Behance 카드 느낌 -->
+                <div class="mt-8 grid gap-3 sm:max-w-md">
+                    <!-- 이메일 -->
+                    <a href="mailto:hwshin5044@gmail.com"
+                       class="case-card flex items-center justify-between rounded-2xl border border-gray-200 bg-white px-5 py-4 hover:shadow-md">
+                        <div class="flex items-center gap-3">
+                            <!-- 이메일 아이콘 (SVG) -->
+                            <svg class="h-6 w-6 text-indigo-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.4-.5 7.1 5.1L18.6 6H4.4Zm15.1 2.2-6.8 4.9a1.5 1.5 0 0 1-1.8 0L4.1 8.2v9.3c0 .33.27.6.6.6h14.6c.33 0 .6-.27.6-.6V8.2Z"/>
+                            </svg>
+                            <div>
+                                <p class="text-sm font-semibold">Email</p>
+                                <p class="text-xs text-gray-600">hwshin5044@gmail.com</p>
+                            </div>
+                        </div>
+                        <span class="text-xs text-indigo-600">메일 보내기 →</span>
+                    </a>
+
+                    <!-- Velog 카드 -->
+                    <a href="https://velog.io/@hwshin" target="_blank"
+                       class="case-card flex items-center gap-3 rounded-2xl bg-emerald-900 px-5 py-4 text-white hover:opacity-95">
+                        <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1581345292/noticon/hbwtrewlv2xxxyqe3qpm.png"
+                             alt="Velog" class="h-9 w-9 rounded-md brand-chip">
+                        <div class="flex-1">
+                            <p class="text-sm font-semibold">Velog</p>
+                            <p class="text-xs/5 opacity-80">velog.io/@hwshin</p>
+                        </div>
+                        <span class="text-xs/5 opacity-90">바로가기</span>
+                    </a>
+
+                    <!-- GitHub 카드 -->
+                    <a href="https://github.com/hwshin1" target="_blank"
+                       class="case-card flex items-center gap-3 rounded-2xl bg-purple-900 px-5 py-4 text-white hover:opacity-95">
+                        <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1567062204/noticon/ttan57gjenhvcrfq10yo.png"
+                             alt="GitHub" class="h-9 w-9 rounded-md brand-chip">
+                        <div class="flex-1">
+                            <p class="text-sm font-semibold">GitHub</p>
+                            <p class="text-xs/5 opacity-80">github.com/hwshin1</p>
+                        </div>
+                        <span class="text-xs/5 opacity-90">바로가기</span>
+                    </a>
                 </div>
-
-                <!-- 키 배지 -->
-                <ul class="mt-6 flex flex-wrap gap-2">
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Java</li>
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Python</li>
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">MySQL</li>
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Spring Boot</li>
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Spring Data JPA</li>
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">HTML / CSS / JS</li>
-                </ul>
             </div>
 
-            <!-- 내프로필 카드 -->
+            <!-- 프로필 이미지 -->
             <aside class="flex justify-center">
-                <div class="w-full max-w-xs rounded-2xl border border-gray-200 bg-white p-3 shadow-sm">
-                    <img src="images/profile.jpg" alt="내 프로필 사진" class="h-auto w-full rounded-xl object-cover">
+                <div class="w-full max-w-sm rounded-3xl border border-gray-200 bg-white p-4 case-card">
+                    <img src="images/profile.jpg" alt="내 프로필 사진" class="h-auto w-full rounded-2xl object-cover">
                 </div>
             </aside>
         </div>
     </div>
 </section>
 
-<!-- 학력 -->
-<section id="education" class="bg-gray-50">
-    <div class="mx-auto max-w-screen-xl px-4 py-14">
-        <h2 class="text-2xl font-bold">학력</h2>
-        <ul class="mt-6 space-y-5">
-            <li class="rounded-xl border border-gray-200 bg-white p-5">
-                <strong class="block text-base">우송대학교</strong>
-                <span class="text-sm text-gray-700">스마트 IT · 보안 학과</span><br>
-                <span class="text-sm text-gray-500">2023.03 ~ 2025.02 편입 · 졸업</span>
-            </li>
-            <li class="rounded-xl border border-gray-200 bg-white p-5">
-                <strong class="block text-base">교육과정</strong>
-                <span class="text-sm text-gray-700">[산대특]프롬프트AI · OpenAPI · 공공데이터 웹/앱 개발자 양성과정</span><br>
-                <span class="text-sm text-gray-500">2025.03 ~ 2025.10</span>
-            </li>
-        </ul>
+<!-- 학력: 섹션 구분을 강하게, 큰 타이틀/카드 -->
+<section id="education" class="relative bg-white border-b border-gray-200">
+    <div class="mx-auto max-w-screen-2xl px-6 py-16">
+        <h2 class="text-3xl font-extrabold tracking-tight">학력</h2>
+
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+            <!-- 우송대 -->
+            <article class="rounded-2xl border border-gray-200 bg-gray-50 p-6 case-card">
+                <div class="flex items-start justify-between">
+                    <strong class="text-lg">우송대학교</strong>
+                    <span class="text-xs rounded-full bg-gray-900/90 px-2 py-1 text-white">2023.03 ~ 2025.02</span>
+                </div>
+                <p class="mt-1 text-sm text-gray-700">스마트 IT · 보안 학과</p>
+                <p class="mt-1 text-xs text-gray-500">편입 · 졸업</p>
+            </article>
+        </div>
     </div>
 </section>
 
-<!-- 스킬 -->
-<section id="skills" class="bg-gray-50">
-    <div class="mx-auto max-w-screen-xl px-4 py-14">
-        <h2 class="text-2xl font-bold">Tech Skills</h2>
+<!-- 기술스택: 아이콘 카드 그리드 -->
+<section id="skills" class="relative bg-gray-50 border-b border-gray-200">
+    <div class="mx-auto max-w-screen-2xl px-6 py-16">
+        <h2 class="text-3xl font-extrabold tracking-tight">기술스택</h2>
 
         <!-- 카드 그리드 -->
-        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <!-- 각 스킬 카드: 필요에 따라 복제 -->
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
-                    <span class="text-sm font-semibold">Python</span>
-                </div>
-                <p class="mt-2 text-sm text-gray-700">파이썬 기반 데이터 처리, 간단한 자동화/크롤러 작성 가능</p>
-            </div>
-
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Java -->
+            <div class="rounded-2xl border border-gray-200 bg-white p-6 case-card">
+                <div class="flex items-center gap-3">
+                    <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1629972500/noticon/htwpjnfc0hlr1teypbjo.png" class="h-10 w-10" alt="Java">
                     <span class="text-sm font-semibold">Java</span>
                 </div>
                 <p class="mt-2 text-sm text-gray-700">Java로 백엔드 핵심 로직과 웹 애플리케이션 구성 경험</p>
             </div>
 
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
+            <!-- JavaScript -->
+            <div class="rounded-2xl border border-gray-200 bg-white p-6 case-card">
+                <div class="flex items-center gap-3">
+                    <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1570946287/noticon/qgdiv5ctkcneujidjuv1.png" class="h-10 w-10" alt="JavaScript">
                     <span class="text-sm font-semibold">JavaScript</span>
                 </div>
                 <p class="mt-2 text-sm text-gray-700">기본 문법/DOM 제어 및 프론트-백엔드 연동</p>
             </div>
 
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
+            <!-- Spring Boot -->
+            <div class="rounded-2xl border border-gray-200 bg-white p-6 case-card">
+                <div class="flex items-center gap-3">
+                    <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566778017/noticon/ytjm1rralodyhvuggrpu.png" class="h-10 w-10" alt="Spring Boot">
                     <span class="text-sm font-semibold">Spring Boot</span>
                 </div>
                 <p class="mt-2 text-sm text-gray-700">간단한 웹 서비스부터 데이터 처리 기반 백엔드 구현 경험</p>
             </div>
 
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
+            <!-- Spring Data JPA -->
+            <div class="rounded-2xl border border-gray-200 bg-white p-6 case-card">
+                <div class="flex items-center gap-3">
+                    <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1609094551/noticon/gkcjchloc7f7khlsyyyy.png" class="h-10 w-10" alt="Spring Data JPA">
                     <span class="text-sm font-semibold">Spring Data JPA</span>
                 </div>
                 <p class="mt-2 text-sm text-gray-700">ORM 매핑/복잡 쿼리 처리/성능 최적화 경험</p>
             </div>
 
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
+            <!-- MySQL -->
+            <div class="rounded-2xl border border-gray-200 bg-white p-6 case-card">
+                <div class="flex items-center gap-3">
+                    <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566913591/noticon/e2bd9zw78n6zw6his4bd.png" class="h-10 w-10" alt="MySQL">
                     <span class="text-sm font-semibold">MySQL</span>
                 </div>
                 <p class="mt-2 text-sm text-gray-700">데이터 베이스 관리 및 연동 경험</p>
+            </div>
+
+            <!-- Tailwind -->
+            <div class="rounded-2xl border border-gray-200 bg-white p-6 case-card">
+                <div class="flex items-center gap-3">
+                    <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1657314490/noticon/ur8spzfcq4acw7ijp68v.png" class="h-10 w-10" alt="Tailwind CSS">
+                    <span class="text-sm font-semibold">Tailwind CSS</span>
+                </div>
+                <p class="mt-2 text-sm text-gray-700">테일윈드를 활용하여 CSS 개선</p>
+            </div>
+
+            <!-- Python -->
+            <div class="rounded-2xl border border-gray-200 bg-white p-6 case-card">
+                <div class="flex items-center gap-3">
+                    <img src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566791609/noticon/nen1y11gazeqhejw7nm1.png" class="h-10 w-10" alt="Python">
+                    <span class="text-sm font-semibold">Python</span>
+                </div>
+                <p class="mt-2 text-sm text-gray-700">파이썬 기반 데이터 처리, 간단한 자동화/크롤러 작성 가능</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 프로젝트 -->
+<!-- 프로젝트: 큰 썸네일 카드 2열, Behance 케이스 스타일 -->
 <section id="projects" class="bg-white">
-    <div class="mx-auto max-w-screen-xl px-4 py-14">
-        <h2 class="text-2xl font-bold">프로젝트</h2>
+    <div class="mx-auto max-w-screen-2xl px-6 py-16">
+        <h2 class="text-3xl font-extrabold tracking-tight">프로젝트</h2>
 
-        <!-- 타임라인 느낌의 리스트 -->
-        <div class="mt-6 space-y-6">
-            <!-- 이미지 카드: 부드러운 테두리, 그림자, 호버 시 살짝 들어올라오는 느낌 -->
-            <article class="group rounded-xl border border-gray-200 bg-gray-50 p-5 transition-shadow">
-                <div class="relative overflow-hidden rounded-lg ring-1 ring-gray-200/70 shadow-sm">
-                    <!-- 고정 비율이 필요하면 aspect-[16/9] 등 적용 -->
-                    <img src="images/KTrip_project_main.png"
-                         alt="K Trip 화면"
-                         class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"/>
+        <div class="mt-8 grid gap-8 md:grid-cols-2">
+            <!-- K Trip -->
+            <article class="group rounded-3xl border border-gray-200 bg-gray-50 p-5 case-card">
+                <div class="relative overflow-hidden rounded-2xl ring-1 ring-gray-200/70">
+                    <a href="https://velog.io/@hwshin/posts?tag=%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8" target="_blank" rel="noreferrer">
+                        <img src="images/KTrip_project_main.png" alt="K Trip 화면"
+                             class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]">
+                    </a>
                 </div>
 
                 <div class="mt-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                     <h3 class="text-base font-semibold">축구 팬들을 위한 지역 맛집 서비스</h3>
-                    <span class="text-sm text-gray-500">2025.05 ~ 2025.7</span>
+                    <span class="text-xs rounded-full bg-gray-900/90 px-2 py-1 text-white">2025.05 ~ 2025.7</span>
                 </div>
-
                 <p class="mt-2 text-sm text-gray-700">
                     국내 축구 팬들과 새로 유입되는 팬들을 위해 축구를 보면서 그 지역의 먹거리를 찾을 수 있게 사이트를 만드는 게 목적
                 </p>
-
                 <a href="https://velog.io/@hwshin/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B0%9C%ED%91%9C"
                    target="_blank" rel="noreferrer"
                    class="mt-3 inline-flex items-center text-sm font-medium text-indigo-600 hover:underline">상세 보기</a>
             </article>
 
-            <article class="rounded-xl border border-gray-200 bg-gray-50 p-5">
-                <div class="relative overflow-hidden rounded-lg ring-1 ring-gray-200/70 shadow-sm">
-                    <!-- 고정 비율이 필요하면 aspect-[16/9] 등 적용 -->
-                    <img src="images/TMRTeamProject_main.png"
-                         alt="터마루 메인"
-                         class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"/>
+            <!-- 터마루 팀프로젝트 -->
+            <article class="group rounded-3xl border border-gray-200 bg-gray-50 p-5 case-card">
+                <div class="relative overflow-hidden rounded-2xl ring-1 ring-gray-200/70">
+                    <a href="https://velog.io/@hwshin/posts?tag=%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8" target="_blank" rel="noreferrer">
+                        <img src="images/TMRTeamProject_main.png" alt="터마루 메인"
+                             class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]">
+                    </a>
                 </div>
 
                 <div class="mt-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                     <h3 class="text-base font-semibold">터마루 팀프로젝트</h3>
-                    <span class="text-sm text-gray-500">2025.07 ~ 2025.09</span>
+                    <span class="text-xs rounded-full bg-gray-900/90 px-2 py-1 text-white">2025.07 ~ 2025.09</span>
                 </div>
                 <p class="mt-2 text-sm text-gray-700">창업자들을 위한 상권 위험도 분석 및 시뮬레이션</p>
-                <a href="#" target="_blank" rel="noreferrer"
+                <a href="https://velog.io/@hwshin/posts?tag=%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8"
+                   target="_blank" rel="noreferrer"
                    class="mt-3 inline-flex items-center text-sm font-medium text-indigo-600 hover:underline">상세 보기</a>
             </article>
-        </div>
-    </div>
-</section>
-
-<!-- 블로그 -->
-<section id="blog" class="bg-white">
-    <div class="mx-auto max-w-screen-xl px-4 py-14">
-        <h2 class="text-2xl font-bold">Blog</h2>
-
-        <!-- 카드 리스트 -->
-        <div class="mt-6 grid gap-4 sm:grid-cols-2">
-            <article class="rounded-xl border border-gray-200 bg-gray-50 p-5">
-                <a class="block" href="https://velog.io/@hwshin/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B0%9C%ED%91%9C" target="_blank" rel="noreferrer">
-                    <h3 class="text-base font-semibold">K Trip</h3>
-                    <p class="mt-1 text-xs text-gray-500">2025-07-02 · 프로젝트 발표</p>
-                    <p class="mt-2 text-sm text-gray-700">Spring Boot, MyBatis 경험</p>
-                    <p class="mt-1 text-sm text-gray-700">축구 팬들을 위한 지역 맛집 서비스</p>
-                </a>
-            </article>
-
-            <article class="rounded-xl border border-gray-200 bg-gray-50 p-5">
-                <a class="block" href="#" target="_blank" rel="noreferrer">
-                    <h3 class="text-base font-semibold">터마루 팀프로젝트</h3>
-                    <p class="mt-1 text-xs text-gray-500">2025-09-30 · 발표</p>
-                    <p class="mt-2 text-sm text-gray-700">상권 위험도 분석 서비스</p>
-                </a>
-            </article>
-        </div>
-    </div>
-</section>
-
-<!-- 연락 -->
-<section id="contact" class="bg-gray-50">
-    <div class="mx-auto max-w-screen-xl px-4 py-14">
-        <h2 class="text-2xl font-bold">Contact</h2>
-        <div class="mt-6 grid gap-6 md:grid-cols-2">
-            <!-- 간단 폼 예시 -->
-            <form class="rounded-xl border border-gray-200 bg-white p-5">
-                <label class="block text-sm font-medium text-gray-700">이름</label>
-                <input type="text" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="이름을 입력해줘">
-                <label class="mt-4 block text-sm font-medium text-gray-700">이메일</label>
-                <input type="email" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="example@email.com">
-                <label class="mt-4 block text-sm font-medium text-gray-700">메시지</label>
-                <textarea rows="4" class="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-indigo-500" placeholder="하고 싶은 말을 적어줘"></textarea>
-                <button type="submit" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700">
-                    보내기
-                </button>
-            </form>
-
-            <!-- 연락 정보 카드 -->
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <p class="text-sm text-gray-700">이메일, 깃허브, 블로그 링크 등을 여기에 적어줘.</p>
-                <ul class="mt-3 space-y-2 text-sm">
-                    <li><a class="text-indigo-600 hover:underline" href="#" target="_blank" rel="noreferrer">GitHub</a></li>
-                    <li><a class="text-indigo-600 hover:underline" href="#" target="_blank" rel="noreferrer">Velog</a></li>
-                </ul>
-            </div>
         </div>
     </div>
 </section>
 
 <!-- 푸터 -->
 <footer class="border-t border-gray-200 bg-white">
-    <div class="mx-auto flex max-w-screen-xl items-center justify-between px-4 py-6">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-6">
         <p class="text-sm text-gray-600">© <span id="year"></span> 현우의 포트폴리오. All rights reserved.</p>
         <a href="#top" class="text-sm font-medium text-indigo-600 hover:underline" aria-label="맨 위로">↑</a>
     </div>
 </footer>
 
+<script>
+    // 연도 자동 세팅
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
