@@ -62,8 +62,7 @@
                 <!-- 연락처 블록: Behance 카드 느낌 -->
                 <div class="mt-8 grid gap-3 sm:max-w-md">
                     <!-- 이메일 -->
-                    <a href="mailto:hwshin5044@gmail.com"
-                       class="case-card flex items-center justify-between rounded-2xl border border-gray-200 bg-white px-5 py-4 hover:shadow-md">
+                    <div class="case-card flex items-center justify-between rounded-2xl border border-gray-200 bg-white px-5 py-4 hover:shadow-md">
                         <div class="flex items-center gap-3">
                             <!-- 이메일 아이콘 (SVG) -->
                             <svg class="h-6 w-6 text-indigo-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -74,7 +73,7 @@
                                 <p class="text-xs text-gray-600">hwshin5044@gmail.com</p>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- Velog 카드 -->
                     <a href="https://velog.io/@hwshin" target="_blank"
@@ -105,7 +104,7 @@
             <!-- 프로필 이미지 -->
             <aside class="flex justify-center">
                 <div class="w-full max-w-sm rounded-3xl border border-gray-200 bg-white p-4 case-card">
-                    <img src="images/profile.jpg" alt="내 프로필 사진" class="h-auto w-full rounded-2xl object-cover">
+                    <img src="images/454.jpg" alt="내 프로필 사진" class="h-auto w-full rounded-2xl object-cover">
                 </div>
             </aside>
         </div>
@@ -204,54 +203,234 @@
     </div>
 </section>
 
-<!-- 프로젝트: 큰 썸네일 카드 2열, Behance 케이스 스타일 -->
+<!-- 프로젝트: Behance 스타일(좌 텍스트 / 우 큰 썸네일), 우측 썸네일은 슬라이드 -->
 <section id="projects" class="bg-white">
     <div class="mx-auto max-w-screen-2xl px-6 py-16">
         <h2 class="text-3xl font-extrabold tracking-tight">프로젝트</h2>
 
-        <div class="mt-8 grid gap-8 md:grid-cols-2">
-            <!-- K Trip -->
-            <article class="group rounded-3xl border border-gray-200 bg-gray-50 p-5 case-card">
-                <div class="relative overflow-hidden rounded-2xl ring-1 ring-gray-200/70">
-                    <a href="https://velog.io/@hwshin/posts?tag=%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8" target="_blank" rel="noreferrer">
-                        <img src="images/KTrip_project_main.png" alt="K Trip 화면"
-                             class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]">
-                    </a>
+        <!-- 래퍼: 카드 2개 세로 스택 -->
+        <div class="mt-10 space-y-10">
+
+            <!-- 프로젝트 카드 1: K Trip -->
+            <article class="grid gap-8 lg:grid-cols-2 items-center rounded-3xl border border-gray-200 bg-gray-50 p-6 case-card">
+                <!-- 좌측: 텍스트 설명 -->
+                <div class="px-2">
+                    <p class="text-sm text-gray-500">Personal Project · 2025.05 ~ 2025.07</p>
+                    <h3 class="mt-2 text-3xl font-extrabold tracking-tight">축구 팬들을 위한 지역 맛집 서비스</h3>
+                    <p class="mt-4 text-sm leading-7 text-gray-700">
+                        국내 축구 팬들과 새로 유입되는 팬들을 위해, 경기 관람과 함께 해당 지역의 먹거리를 탐색할 수 있는 웹 서비스를 제작.
+                        팀·경기·지역 정보를 기반으로 맛집을 탐색하게 하여 이용자의 이동 동선과 콘텐츠 소비 경험을 연결.
+                    </p>
+
+                    <!-- 핵심 기술/역할 -->
+                    <ul class="mt-6 grid grid-cols-2 gap-2 text-xs text-gray-700">
+                        <li class="rounded-lg bg-white px-3 py-2 border border-gray-200">Spring Boot</li>
+                        <li class="rounded-lg bg-white px-3 py-2 border border-gray-200">MyBatis</li>
+                        <li class="rounded-lg bg-white px-3 py-2 border border-gray-200">MySQL</li>
+                        <li class="rounded-lg bg-white px-3 py-2 border border-gray-200">Tailwind CSS</li>
+                    </ul>
+
+                    <!-- 액션 링크 -->
+                    <div class="mt-6 flex gap-3">
+                        <a href="https://velog.io/@hwshin/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B0%9C%ED%91%9C"
+                           target="_blank" rel="noreferrer"
+                           class="inline-flex items-center rounded-xl border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-100">
+                            상세 보기
+                        </a>
+                    </div>
                 </div>
 
-                <div class="mt-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                    <h3 class="text-base font-semibold">축구 팬들을 위한 지역 맛집 서비스</h3>
-                    <span class="text-xs rounded-full bg-gray-900/90 px-2 py-1 text-white">2025.05 ~ 2025.7</span>
+                <!-- 우측: 이미지 슬라이더 -->
+                <div class="relative">
+                    <!-- 슬라이더 컨테이너: data-slider 식별자 부여 -->
+                    <div class="relative overflow-hidden rounded-[28px] bg-white ring-1 ring-gray-200/70 case-card" data-slider="ktrip">
+                        <!-- 트랙: 슬라이드들을 가로로 배치 -->
+                        <div class="flex transition-transform duration-500 ease-out" data-slider-track>
+                            <!-- 슬라이드 1 -->
+                            <div class="min-w-full">
+                                <img src="images/메인 2025-10-01 091949.png" alt="K Trip 메인"
+                                     class="block h-auto w-full object-cover">
+                            </div>
+                            <!-- 슬라이드 2: 필요시 다른 스크린샷 추가 -->
+                            <div class="min-w-full">
+                                <!-- 예시로 동일 이미지 사용. 실제 배포 시 다른 캡처로 교체 -->
+                                <img src="images/메인2 2025-10-01 092126.png" alt="K Trip 메인2"
+                                     class="block h-auto w-full object-cover">
+                            </div>
+                            <div class="min-w-full">
+                                <!-- 예시로 동일 이미지 사용. 실제 배포 시 다른 캡처로 교체 -->
+                                <img src="images/구단 소개 페이지 2025-10-01 092742.png" alt="K Trip 메인2"
+                                     class="block h-auto w-full object-cover">
+                            </div>
+                            <div class="min-w-full">
+                                <!-- 예시로 동일 이미지 사용. 실제 배포 시 다른 캡처로 교체 -->
+                                <img src="images/경기장 근처 음식점 2025-10-01 095826.png" alt="K Trip 메인2"
+                                     class="block h-auto w-full object-cover">
+                            </div>
+                        </div>
+
+                        <!-- 좌우 컨트롤 -->
+                        <button type="button" aria-label="이전"
+                                class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 px-2 py-2 text-white hover:bg-black/70"
+                                data-slider-prev>
+                            <!-- 아이콘: 좌 화살표 -->
+                            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </button>
+                        <button type="button" aria-label="다음"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 px-2 py-2 text-white hover:bg-black/70"
+                                data-slider-next>
+                            <!-- 아이콘: 우 화살표 -->
+                            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+
+                        <!-- 인디케이터 점 -->
+                        <div class="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5" data-slider-dots>
+                            <!-- JS에서 동적 생성 -->
+                        </div>
+                    </div>
                 </div>
-                <p class="mt-2 text-sm text-gray-700">
-                    국내 축구 팬들과 새로 유입되는 팬들을 위해 축구를 보면서 그 지역의 먹거리를 찾을 수 있게 사이트를 만드는 게 목적
-                </p>
-                <a href="https://velog.io/@hwshin/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B0%9C%ED%91%9C"
-                   target="_blank" rel="noreferrer"
-                   class="mt-3 inline-flex items-center text-sm font-medium text-indigo-600 hover:underline">상세 보기</a>
             </article>
 
-            <!-- 터마루 팀프로젝트 -->
-            <article class="group rounded-3xl border border-gray-200 bg-gray-50 p-5 case-card">
-                <div class="relative overflow-hidden rounded-2xl ring-1 ring-gray-200/70">
-                    <a href="https://velog.io/@hwshin/posts?tag=%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8" target="_blank" rel="noreferrer">
-                        <img src="images/TMRTeamProject_main.png" alt="터마루 메인"
-                             class="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]">
-                    </a>
+            <!-- 프로젝트 카드 2: 터마루 팀프로젝트 -->
+            <article class="grid gap-8 lg:grid-cols-2 items-center rounded-3xl border border-gray-200 bg-gray-50 p-6 case-card">
+                <!-- 좌측: 텍스트 설명 -->
+                <div class="px-2 order-2 lg:order-1">
+                    <p class="text-sm text-gray-500">Team Project · 2025.07 ~ 2025.09</p>
+                    <h3 class="mt-2 text-3xl font-extrabold tracking-tight">터마루 팀프로젝트</h3>
+                    <p class="mt-4 text-sm leading-7 text-gray-700">
+                        창업자들을 위한 상권 위험도 분석 및 시뮬레이션. GeoJSON 기반 시각화, Kakao Map 오버레이,
+                        Python과 Spring Boot 백엔드로 위험도 점수와 분류 모델을 제공.
+                    </p>
+
+                    <!-- 핵심 기술/역할 -->
+                    <ul class="mt-6 grid grid-cols-2 gap-2 text-xs text-gray-700">
+                        <li class="rounded-lg bg-white px-3 py-2 border border-gray-200">Spring Boot + JPA</li>
+                        <li class="rounded-lg bg-white px-3 py-2 border border-gray-200">Python</li>
+                        <li class="rounded-lg bg-white px-3 py-2 border border-gray-200">GeoJSON / Kakao Map</li>
+                        <li class="rounded-lg bg-white px-3 py-2 border border-gray-200">RandomForest, KMeans</li>
+                    </ul>
+
+                    <!-- 액션 링크 -->
+                    <div class="mt-6 flex gap-3">
+                        <a href="https://velog.io/@hwshin/posts?tag=%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8"
+                           target="_blank" rel="noreferrer"
+                           class="inline-flex items-center rounded-xl border border-gray-300 bg-white px-4 py-2 text-sm font-medium hover:bg-gray-100">
+                            상세 보기
+                        </a>
+                    </div>
                 </div>
 
-                <div class="mt-4 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-                    <h3 class="text-base font-semibold">터마루 팀프로젝트</h3>
-                    <span class="text-xs rounded-full bg-gray-900/90 px-2 py-1 text-white">2025.07 ~ 2025.09</span>
+                <!-- 우측: 이미지 슬라이더 -->
+                <div class="relative order-1 lg:order-2">
+                    <div class="relative overflow-hidden rounded-[28px] bg-white ring-1 ring-gray-200/70 case-card" data-slider="tmr">
+                        <div class="flex transition-transform duration-500 ease-out" data-slider-track>
+                            <!-- 슬라이드 1 -->
+                            <div class="min-w-full">
+                                <a href="images/TMRTeamProject_main.png" target="_blank" rel="noreferrer">
+                                    <img src="images/TMRTeamProject_main.png" alt="터마루 메인 화면"
+                                         class="block h-auto w-full object-cover">
+                                </a>
+                            </div>
+                            <!-- 슬라이드 2 -->
+                            <div class="min-w-full">
+                                <!-- 예시로 동일 이미지 사용. 실제 배포 시 다른 캡처로 교체 -->
+                                <img src="images/유동인구_매출액 지도 2025-10-01 101536.png" alt="터마루 지도 화면"
+                                     class="block h-auto w-full object-cover">
+                            </div>
+                            <!-- 슬라이드 3 -->
+                            <div class="min-w-full">
+                                <!-- 예시로 동일 이미지 사용. 실제 배포 시 다른 캡처로 교체 -->
+                                <img src="images/위험도 분석 지도 2025-10-01 101623.png" alt="터마루 지도 화면"
+                                     class="block h-auto w-full object-cover">
+                            </div>
+                        </div>
+
+                        <!-- 좌우 컨트롤 -->
+                        <button type="button" aria-label="이전"
+                                class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 px-2 py-2 text-white hover:bg-black/70"
+                                data-slider-prev>
+                            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </button>
+                        <button type="button" aria-label="다음"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 px-2 py-2 text-white hover:bg-black/70"
+                                data-slider-next>
+                            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+
+                        <!-- 인디케이터 점 -->
+                        <div class="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5" data-slider-dots>
+                            <!-- JS에서 동적 생성 -->
+                        </div>
+                    </div>
                 </div>
-                <p class="mt-2 text-sm text-gray-700">창업자들을 위한 상권 위험도 분석 및 시뮬레이션</p>
-                <a href="https://velog.io/@hwshin/posts?tag=%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8"
-                   target="_blank" rel="noreferrer"
-                   class="mt-3 inline-flex items-center text-sm font-medium text-indigo-600 hover:underline">상세 보기</a>
             </article>
+
         </div>
     </div>
 </section>
+
+<script>
+    // 슬라이더 초기화 스크립트
+    // data-slider 속성을 가진 컨테이너마다 슬라이더 동작 부여
+    document.querySelectorAll('[data-slider]').forEach(initSlider);
+
+    /**
+     * 슬라이더 1개 초기화
+     * @param {HTMLElement} root 슬라이더 루트 엘리먼트
+     */
+    function initSlider(root) {
+        // 트랙/버튼/점 컨테이너 참조
+        const track = root.querySelector('[data-slider-track]');
+        const prevBtn = root.querySelector('[data-slider-prev]');
+        const nextBtn = root.querySelector('[data-slider-next]');
+        const dotsWrap = root.querySelector('[data-slider-dots]');
+
+        // 슬라이드 개수/인덱스
+        const slides = Array.from(track.children);
+        let index = 0;
+
+        // 인디케이터 점 생성
+        dotsWrap.innerHTML = '';
+        const dots = slides.map((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'inline-block h-1.5 w-1.5 rounded-full bg-white/50 ring-1 ring-black/10';
+            if (i === 0) dot.classList.add('bg-white');
+            dotsWrap.appendChild(dot);
+            return dot;
+        });
+
+        // 이동 함수
+        const go = (i) => {
+            index = (i + slides.length) % slides.length;
+            const offset = -index * root.clientWidth; // 컨테이너 너비 기준
+            track.style.transform = `translateX(${offset}px)`;
+            dots.forEach((d, di) => {
+                d.classList.toggle('bg-white', di === index);
+                d.classList.toggle('bg-white/50', di !== index);
+            });
+        };
+
+        // 리사이즈 시 현재 인덱스 유지한 채 위치 재계산
+        const onResize = () => go(index);
+        window.addEventListener('resize', onResize);
+
+        // 버튼 이벤트
+        prevBtn.addEventListener('click', () => go(index - 1));
+        nextBtn.addEventListener('click', () => go(index + 1));
+
+        // 최초 위치 세팅
+        // 초기엔 트랙 너비가 컨테이너와 다를 수 있으므로 약간 지연하여 적용
+        requestAnimationFrame(() => go(0));
+    }
+</script>
 
 <!-- 푸터 -->
 <footer class="border-t border-gray-200 bg-white">
