@@ -50,15 +50,16 @@
                     </p>
                 </div>
 
-                <!-- 키 배지 -->
-                <ul class="mt-6 flex flex-wrap gap-2">
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Java</li>
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Python</li>
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">MySQL</li>
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Spring Boot</li>
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">Spring Data JPA</li>
-                    <li class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">HTML / CSS / JS</li>
-                </ul>
+                <!-- 연락처 -->
+                <div class="mt-6 rounded-xl border border-gray-200 bg-white p-4">
+                    <h3 class="text-sm font-semibold text-gray-900">Contact</h3>
+                    <ul class="mt-2 space-y-1 text-sm text-gray-700">
+                        <li><span class="font-medium">이메일:</span> <a href="mailto:hwshin5044@gmail.com" class="text-indigo-600 hover:underline">hwshin5044@gmail.com</a></li>
+                        <li><span class="font-medium">전화:</span> 010-1234-5678</li>
+                        <li><span class="font-medium">GitHub:</span> <a href="https://github.com/hwshin1" target="_blank" class="text-indigo-600 hover:underline">github.com/hwshin1</a></li>
+                        <li><span class="font-medium">Velog:</span> <a href="https://velog.io/@hwshin" target="_blank" class="text-indigo-600 hover:underline">velog.io/@hwshin</a></li>
+                    </ul>
+                </div>
             </div>
 
             <!-- 내프로필 카드 -->
@@ -74,71 +75,87 @@
 <!-- 학력 -->
 <section id="education" class="bg-gray-50">
     <div class="mx-auto max-w-screen-xl px-4 py-14">
-        <h2 class="text-2xl font-bold">학력</h2>
-        <ul class="mt-6 space-y-5">
-            <li class="rounded-xl border border-gray-200 bg-white p-5">
-                <strong class="block text-base">우송대학교</strong>
-                <span class="text-sm text-gray-700">스마트 IT · 보안 학과</span><br>
-                <span class="text-sm text-gray-500">2023.03 ~ 2025.02 편입 · 졸업</span>
-            </li>
-            <li class="rounded-xl border border-gray-200 bg-white p-5">
-                <strong class="block text-base">교육과정</strong>
-                <span class="text-sm text-gray-700">[산대특]프롬프트AI · OpenAPI · 공공데이터 웹/앱 개발자 양성과정</span><br>
-                <span class="text-sm text-gray-500">2025.03 ~ 2025.10</span>
-            </li>
-        </ul>
-    </div>
-</section>
+        <h2 class="text-2xl font-bold">학력 & Tech Skills</h2>
 
-<!-- 스킬 -->
-<section id="skills" class="bg-gray-50">
-    <div class="mx-auto max-w-screen-xl px-4 py-14">
-        <h2 class="text-2xl font-bold">Tech Skills</h2>
+        <!-- 같은 높이를 위해 items-stretch + 각 컬럼 h-full -->
+        <div class="mt-6 grid gap-6 md:grid-cols-2 items-stretch">
 
-        <!-- 카드 그리드 -->
-        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <!-- 각 스킬 카드: 필요에 따라 복제 -->
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
-                    <span class="text-sm font-semibold">Python</span>
-                </div>
-                <p class="mt-2 text-sm text-gray-700">파이썬 기반 데이터 처리, 간단한 자동화/크롤러 작성 가능</p>
+            <!-- 왼쪽: 학력 카드 (단일 카드 안에 리스트) -->
+            <div class="rounded-xl border border-gray-200 bg-white p-6 h-full flex flex-col">
+                <!-- 제목 -->
+                <h3 class="text-lg font-semibold">학력</h3>
+
+                <!-- 내용: 남는 높이가 있어도 아래 여백 유지를 위해 space-y 활용 -->
+                <ul class="mt-4 space-y-5">
+                    <li class="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                        <strong class="block text-base">우송대학교</strong>
+                        <span class="text-sm text-gray-700">스마트 IT · 보안 학과</span><br>
+                        <span class="text-sm text-gray-500">2023.03 ~ 2025.02 편입 · 졸업</span>
+                    </li>
+
+                    <li class="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                        <strong class="block text-base">교육과정</strong>
+                        <span class="text-sm text-gray-700">[산대특]프롬프트AI · OpenAPI · 공공데이터 웹/앱 개발자 양성과정</span><br>
+                        <span class="text-sm text-gray-500">2025.03 ~ 2025.10</span>
+                    </li>
+                </ul>
+
+                <!-- 남는 공간이 있어도 카드 외곽선 유지 -->
+                <div class="mt-auto"></div>
             </div>
 
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
-                    <span class="text-sm font-semibold">Java</span>
+            <!-- 오른쪽: 스킬 카드 (내부 그리드가 높이를 채우도록 구성) -->
+            <div id="skills" class="rounded-xl border border-gray-200 bg-white p-6 h-full flex flex-col">
+                <!-- 제목 -->
+                <h3 class="text-lg font-semibold">Tech Skills</h3>
+
+                <!-- 그리드: flex-1로 세로 공간을 채워 카드 높이 맞춤 -->
+                <div class="mt-4 grid flex-1 content-start gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- 각 스킬 카드 -->
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold">Python</span>
+                        </div>
+                        <p class="mt-2 text-sm text-gray-700">파이썬 기반 데이터 처리, 간단한 자동화/크롤러 작성 가능</p>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold">Java</span>
+                        </div>
+                        <p class="mt-2 text-sm text-gray-700">Java로 백엔드 핵심 로직과 웹 애플리케이션 구성 경험</p>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold">JavaScript</span>
+                        </div>
+                        <p class="mt-2 text-sm text-gray-700">기본 문법/DOM 제어 및 프론트-백엔드 연동</p>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold">Spring Boot</span>
+                        </div>
+                        <p class="mt-2 text-sm text-gray-700">간단한 웹 서비스부터 데이터 처리 기반 백엔드 구현 경험</p>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold">Spring Data JPA</span>
+                        </div>
+                        <p class="mt-2 text-sm text-gray-700">ORM 매핑/복잡 쿼리 처리/성능 최적화 경험</p>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold">MySQL</span>
+                        </div>
+                        <p class="mt-2 text-sm text-gray-700">데이터 베이스 관리 및 연동 경험</p>
+                    </div>
                 </div>
-                <p class="mt-2 text-sm text-gray-700">Java로 백엔드 핵심 로직과 웹 애플리케이션 구성 경험</p>
             </div>
 
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
-                    <span class="text-sm font-semibold">JavaScript</span>
-                </div>
-                <p class="mt-2 text-sm text-gray-700">기본 문법/DOM 제어 및 프론트-백엔드 연동</p>
-            </div>
-
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
-                    <span class="text-sm font-semibold">Spring Boot</span>
-                </div>
-                <p class="mt-2 text-sm text-gray-700">간단한 웹 서비스부터 데이터 처리 기반 백엔드 구현 경험</p>
-            </div>
-
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
-                    <span class="text-sm font-semibold">Spring Data JPA</span>
-                </div>
-                <p class="mt-2 text-sm text-gray-700">ORM 매핑/복잡 쿼리 처리/성능 최적화 경험</p>
-            </div>
-
-            <div class="rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center justify-between">
-                    <span class="text-sm font-semibold">MySQL</span>
-                </div>
-                <p class="mt-2 text-sm text-gray-700">데이터 베이스 관리 및 연동 경험</p>
-            </div>
         </div>
     </div>
 </section>
@@ -186,7 +203,7 @@
                     <span class="text-sm text-gray-500">2025.07 ~ 2025.09</span>
                 </div>
                 <p class="mt-2 text-sm text-gray-700">창업자들을 위한 상권 위험도 분석 및 시뮬레이션</p>
-                <a href="#" target="_blank" rel="noreferrer"
+                <a href="https://velog.io/@hwshin/%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B0%9C%ED%91%9C-%EB%B0%8F-%EB%A7%88%EB%AC%B4%EB%A6%AC" target="_blank" rel="noreferrer"
                    class="mt-3 inline-flex items-center text-sm font-medium text-indigo-600 hover:underline">상세 보기</a>
             </article>
         </div>
@@ -210,7 +227,7 @@
             </article>
 
             <article class="rounded-xl border border-gray-200 bg-gray-50 p-5">
-                <a class="block" href="#" target="_blank" rel="noreferrer">
+                <a class="block" href="https://velog.io/@hwshin/%ED%8C%80-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%B0%9C%ED%91%9C-%EB%B0%8F-%EB%A7%88%EB%AC%B4%EB%A6%AC" target="_blank" rel="noreferrer">
                     <h3 class="text-base font-semibold">터마루 팀프로젝트</h3>
                     <p class="mt-1 text-xs text-gray-500">2025-09-30 · 발표</p>
                     <p class="mt-2 text-sm text-gray-700">상권 위험도 분석 서비스</p>
